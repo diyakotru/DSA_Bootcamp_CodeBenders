@@ -149,3 +149,115 @@
 //     }
 // }
 
+
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+//         int n=s.length();
+//         int m=t.length();
+//         if(n!=m)return false;
+//         int[] freq1=new int[26];
+//         int[] freq2=new int [26];
+
+//         for(char ch: s.toCharArray()){
+//             freq1[ch-'a']++;
+//         }
+//         for(char ch: t.toCharArray()){
+//             freq2[ch-'a']++;
+//         }
+//         // if(freq2.equals(freq1))return true;
+//         for(int i=0;i<26;i++){
+//             if(freq1[i]!=freq2[i])return false;
+//         }
+
+//         return true;
+        
+//     }
+// }
+
+// class Solution {
+//     public int[] topKFrequent(int[] nums, int k) {
+//         // hashmap -> no, freq 
+//         // pq -> max freq , k loop -> top k elements konse hai 
+
+//         int n =nums.length;
+//         HashMap<Integer,Integer> map=new HashMap<>();
+//         for(int i : nums){
+//             if(map.containsKey(i)){
+//                 map.put(i, map.get(i)+1);
+//             }else{
+//                 map.put(i,1);
+//             }
+//         }
+//         // int[] -> 2 len [number , freq ]
+//         PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->b[1]-a[1]);
+//         for(int i : map.keySet()){
+//             int val=map.get(i);
+//             pq.offer(new int[]{i,val});
+//         }
+//         int[] ans=new int[k];
+//         int ind=0;
+//         while(!pq.isEmpty()&&k>0){
+//             k--;
+//             int[] arr=pq.poll();
+//             ans[ind++]=arr[0];
+//         }
+//         return ans;
+
+
+
+//     }
+// }
+
+
+// class Solution {
+//     public int longestConsecutive(int[] nums) {
+//         // set -> unique values store 
+//         // [1,2,3,1,1,1,1,2,2,2,2,2] [1,2,3]
+//         Set<Integer> set =new HashSet<>();
+//         for(int i: nums){
+//             set.add(i);
+//         }
+
+//         int max=0;
+//         for(int i: set){
+//             if(!set.contains(i-1)){
+//                 int cnt=1;
+//                 while(set.contains(i+1)){
+//                     cnt++;
+//                     i=i+1;
+//                 }
+//                 max=Math.max(max,cnt);
+//             }
+//         }
+//         return max;
+
+
+
+//     }
+// }
+
+
+// i=7
+// sout(i++)-> print 7  i=8
+
+// i=i+1
+// sout(i)-> 8
+
+// class Solution {
+//     public boolean isPalindrome(String s) {
+//         // cleaning of string
+//         StringBuilder sb=new StringBuilder();
+//         int i=0;
+//         int n =s.length();
+//         while(i<n){
+//             char ch=s.charAt(i);
+//             if(Character.isLetter(ch)||Character.isDigit(ch))sb.append(Character.toLowerCase(ch));
+//             i++;
+//         }
+
+//         // palindrome checking -> stack , 2 pointer , reverse use 
+//         String og=sb.toString();
+//         String rev=sb.reverse().toString();
+//         return og.equals(rev);
+//     }
+// }
